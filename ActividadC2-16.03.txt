@@ -1,0 +1,14 @@
+Para resolver el problema elegimos usar una Pila (Stack) porque es una estructura simple y fácil de entender.
+Una pila funciona con el principio LIFO (Last In, First Out), es decir, el último elemento que entra es el primero que sale, como una pila de platos.
+
+El contrato (interfaz) define los métodos que se deben cumplir: InicializarPila, Apilar, Desapilar, Tope y PilaVacia.
+Los usuarios solo pueden usar estos métodos y no saben cómo funciona internamente la estructura, ya que para ellos es una caja negra.
+
+Como suposición, podemos imaginar que la pila guarda IDs de pedidos de un cliente.
+Primero se usa InicializarPila para crear una pila vacía. 
+Luego se agregan pedidos con Apilar (por ejemplo 101, 245, 333). 
+El método Tope permite ver el último pedido agregado sin eliminarlo, mientras que Desapilar lo elimina. 
+PilaVacia sirve para saber si todavía quedan pedidos en la pila.
+
+La implementación interna podría hacerse de distintas formas, por ejemplo usando un arreglo o una lista enlazada, pero eso solo lo saben los implementadores. 
+Lo importante es que mientras se respete el contrato, los usuarios podrán usar la estructura sin importar cómo esté hecha por dentro.
