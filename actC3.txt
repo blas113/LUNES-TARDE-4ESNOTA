@@ -1,0 +1,201 @@
+##################################### Bloque 1:  ##############################################
+
+
+
+Historial de navegación:
+Se apilan páginas visitadas, al ir atrás se desapila la última.
+
+Editor (Undo/Deshacer):
+Apilar cada cambio para deshacer, desapilar y restaurar estado anterior.
+
+Balanceo de paréntesis:
+Apilar “(” al ver “)” se desapila. Si falla -> error.
+
+Reversión de string:
+Apilar letras, al desapilar se invierte el orden.
+
+Call Stack:
+Tope: Sumar() (última llamada activa).
+
+Navegación de directorios:
+Apilar cada carpeta al entrar; desapilar al subir nivel.
+
+
+##################################### Bloque 2 ############################################
+
+Fila del Cajero:
+Cola común (FIFO), se atiende por orden de llegada.
+
+Impresora:
+Orden de salida = mismo orden de llegada (FIFO).
+
+Guardia (prioridades ejemplo):
+
+Raspón -> 1
+Fiebre alta -> 50
+Infarto -> 100 
+
+Examen Final:
+Sale primero el promocionado (mayor prioridad).
+
+Buffet:
+enqueue() para agregar al final (evita colarse).
+
+Scheduler (SO):
+
+Sistema -> 50
+Usuario -> 10
+Si se sobrecarga: se ejecutan primero los de mayor prioridad, los demás esperan (starvation posible).
+
+Embarque:
+Si misma prioridad -> FIFO entre ellos.
+
+Tickets IT:
+
+Servidor caído -> 999
+Fondo pantalla -> 0
+
+Ejemplo código cola prioridad:
+
+class PriorityQueue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element, priority) {
+    this.items.push({ element, priority });
+    this.items.sort((a, b) => b.priority - a.priority);
+  }
+
+  dequeue() {
+    return this.items.shift();
+  }
+}class Tarea {
+    String nombre;
+    int prioridad;
+
+    public Tarea(String nombre, int prioridad) {
+        this.nombre = nombre;
+        this.prioridad = prioridad;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        PriorityQueue<Tarea> cola = new PriorityQueue<>(
+            (a, b) -> b.prioridad - a.prioridad // mayor prioridad primero
+        );
+
+        cola.add(new Tarea("Spotify", 10));
+        cola.add(new Tarea("Sistema", 50));
+        cola.add(new Tarea("Fondo pantalla", 0));
+
+        while (!cola.isEmpty()) {
+            Tarea t = cola.poll();
+            System.out.println(t.nombre + " - " + t.prioridad);
+        }
+    }
+}
+
+
+################################### Bloque 3  ###################################################
+
+Padrón Electoral:
+Usar contains(). Si ya pertenece → no vota de nuevo.
+
+Invitados:
+No se agrega duplicado → tamaño no cambia.
+
+Filtro Spam:
+
+if (blacklist.contains(palabra)) {
+    // es spam
+}
+
+Tags Blog:
+Conjunto evita duplicados y no importa el orden.
+
+Legajos:
+Set de IDs únicos → no permite duplicados automáticamente.
+
+Elegir vs Sacar:
+Sí, puede devolver el mismo (no se eliminó).
+
+################################## Bloque 4 ########################################
+
+Puntajes E-Sports:
+Clave: [Usuario] / Valor: [Puntaje]
+
+Traductor:
+Múltiple (una palabra → varios significados)
+
+Índice Libro:
+Clave: [Palabra] / Valor: [Set de páginas]
+
+Inscripción Alumno:
+Clave: [Legajo] / Valor: [Set de materias]
+
+DNS:
+Clave: [Dominio] / Valor: [IP]
+
+Chipotle Bot:
+Clave: [Orden ID] / Valor: [Script Python]
+
+################################# Bloque 5 ###############################################
+
+1. Hospital Premium:
+Cola de Prioridad (pacientes) + Pila (historial de síntomas, LIFO).
+
+2. Sistema de Tags:
+Clave: [Carrera] / Valor: [Set de materias]
+
+3. Estrategias Pilas:
+
+Estrat 1 → contador (tope dinámico)
+Estrat 2 → desplazamiento (tope en índice 0)
+Estrat 3 → tamaño en posición [0]
+
+4. Más ineficiente:
+Estrategia 2 → O(n) (desplaza todo en cada push).
+Estrategia 1 → O(1)
+
+################################## Desafio Final #########################################
+
+Req 1 → TDA: Conjunto / Operación: pertenece()
+
+Req 2 y 3 → TDA: Cola de Prioridad / Mayor valor = mayor prioridad
+
+Req 4 → TDA: Diccionario Múltiple /
+Clave: [Materia] / Valor: [Set de correlativas]
+
+Ejemplo en Java:
+
+import java.util.*;
+
+class Alumno {
+    int legajo;
+    int prioridad; // ej: depto = 100, normal = 10
+
+    public Alumno(int legajo, int prioridad) {
+        this.legajo = legajo;
+        this.prioridad = prioridad;
+    }
+}
+
+public class Sistema {
+    Set<Integer> inscriptos = new HashSet<>();
+
+    PriorityQueue<Alumno> cola = new PriorityQueue<>(
+        (a, b) -> b.prioridad - a.prioridad
+    );
+
+    Map<String, Set<String>> correlativas = new HashMap<>();
+
+    public void inscribirAlumno(int legajo, String materiaCod, int prioridad) {
+
+        if (!inscriptos.contains(legajo)) {
+            cola.add(new Alumno(legajo, prioridad));
+            inscriptos.add(legajo);
+        }
+    }
+}
