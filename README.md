@@ -1,6 +1,6 @@
 # LUNES-TARDE-4ESNOTA
 
-## Integrantes: Pesce Blas, Diaz Juan Matias, Brandes Santiago, Ian Rebuffo
+## Integrantes: Pesce Blas, Diaz Juan Matias, Brandes Santiago, Rebuffo Ian
 
 
 ### Habilidades del equipo
