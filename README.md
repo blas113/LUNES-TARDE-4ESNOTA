@@ -1,6 +1,6 @@
 # LUNES-TARDE-4ESNOTA
 
-## Integrantes: Pesce Blas, Diaz Juan Matias, Brandes Santiago, Ian Rebuffo
+## Integrantes: Pesce Blas, Diaz Juan Matias, Brandes Santiago, Rebuffo Ian
 
 
 ### Habilidades del equipo
@@ -9,7 +9,7 @@
   ████████████████████░░ 80%
 
 - Atencion   
-  ███████████░░░░░░░░░░░ 50%
+  ████░░░░░░░░░░░░░░░░░░ 25%
 
 - Buena onda
   
@@ -19,3 +19,7 @@
   ████████████████████░ 90%
 
 ## Actividad clase 2 (16/03)
+
+## Actividad clase 3 (23/03)
+
+## Actividad clase 4 (30/03)
