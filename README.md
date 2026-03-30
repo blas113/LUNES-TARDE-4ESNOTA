@@ -19,3 +19,7 @@
   ████████████████████░ 90%
 
 ## Actividad clase 2 (16/03)
+
+## Actividad clase 3 (23/03)
+
+## Actividad clase 4 (30/03)
