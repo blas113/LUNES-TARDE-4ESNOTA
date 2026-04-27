@@ -1,21 +1,35 @@
-
 package C8Desafios;
 
 import java.util.*;
 
 public class desafio1 {
-boolean esPalindromo(String s) {
-    Deque<Character> p = new ArrayDeque<>();
-    Queue<Character> c = new ArrayDeque<>();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese una cadena: ");
+        String texto = scanner.nextLine().trim();
+        scanner.close();
 
-    for (char ch : s.toCharArray()) {
-        p.push(ch);
-        c.add(ch);
+        if (esPalindromo(texto)) {
+            System.out.println("Es palíndromo");
+        } else {
+            System.out.println("No es palíndromo");
+        }
     }
 
-    while (!p.isEmpty()) {
-        if (!p.pop().equals(c.remove())) return false;
+    private static boolean esPalindromo(String s) {
+        Deque<Character> p = new ArrayDeque<>();
+        Queue<Character> c = new ArrayDeque<>();
+
+        for (char ch : s.toCharArray()) {
+            if (!Character.isWhitespace(ch)) {
+                p.push(ch);
+                c.add(ch);
+            }
+        }
+
+        while (!p.isEmpty()) {
+            if (!p.pop().equals(c.remove())) return false;
+        }
+        return true;
     }
-    return true;
-}
 }
