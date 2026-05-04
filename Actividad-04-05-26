@@ -1,0 +1,34 @@
+Ejercicio 1: Análisis de ciclos anidados
+
+Para determinar la complejidad de este método, primero nos enfocamos en buscar cuál es el "peor caso". 
+El algoritmo tiene un return que corta la ejecución si encuentra un 5 o un 6. 
+Por lo tanto, el peor escenario posible (donde la compu trabaja más) es que el arreglo no tenga ningún 5 ni ningún 6, 
+lo que obliga al código a revisar todos los elementos hasta el final y terminar devolviendo -1.
+
+Analizando los ciclos en ese peor caso, vemos que tenemos un ciclo adentro del otro.
+- El ciclo de afuera (con la variable i) va a dar n vueltas (siendo n el tamaño del arreglo).
+- El ciclo de adentro (con la variable j) depende de por dónde vaya la i. En la primera vuelta da 0 pasos, 
+en la segunda da 1, después 2, y así va subiendo hasta llegar a casi n pasos.
+
+Como por cada pasito que da el ciclo exterior, el interior tiene que arrancar de nuevo y dar cada vez más vueltas,
+ el esfuerzo se multiplica (es básicamente n x n). Por eso deducimos que la complejidad temporal en el peor de los casos es O(n²).
+
+Ejercicio 2: Análisis de un algoritmo integrador
+
+(a) Complejidad Temporal:
+A diferencia del primer ejercicio, acá nos damos cuenta de que no hay ciclos anidados, sino procesos que pasan uno después del otro.
+Primero, hacemos un recorrido completo sacando los n elementos de la cola original, comparándolos con el límite, y guardándolos en la cola tmp. 
+Eso nos toma n operaciones.
+Después, hacemos otro recorrido para sacar esos mismos elementos de tmp y volver a meterlos en la cola original. Nos toma otros n pasos.
+En total hicimos n + n = 2n pasos. Como en la notación Big O las constantes multiplicativas se ignoran, 
+nuestra conclusión es que el tiempo crece de forma lineal. La complejidad temporal es O(n).
+
+(b) Complejidad Espacial:
+Acá analizamos cuánta memoria "extra" necesitamos para que funcione el algoritmo, o sea, el tamaño de las estructuras auxiliares.
+Por un lado, la estructura tmp sí o sí tiene que poder guardar los n elementos de la cola original para no perderlos.
+Por otro lado, tenemos la estructura res. Como siempre tenemos que pensar en el peor caso, nos pusimos a pensar: 
+¿qué pasa si absolutamente todos los elementos originales son mayores al límite? 
+En ese caso, la cola res también va a necesitar guardar n elementos.
+En total necesitaríamos espacio para 2n elementos extra. De nuevo, ignorando el "2",
+llegamos a la conclusión de que la complejidad espacial también es O(n), 
+porque la necesidad de memoria crece proporcionalmente a la cantidad de datos que nos pasen.
